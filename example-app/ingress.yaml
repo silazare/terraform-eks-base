@@ -1,0 +1,21 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: example-ingress
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/tags: Name=alb-eks-test,Environment=staging
+spec:
+  rules:
+      - http:
+          paths:
+            - path: /apple
+              backend:
+                serviceName: apple-service
+                servicePort: 80
+            - path: /banana
+              backend:
+                serviceName: banana-service
+                servicePort: 80

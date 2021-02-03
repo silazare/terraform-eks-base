@@ -1,0 +1,14 @@
+fail_fast: false
+repos:
+  - repo: git@github.com:awslabs/git-secrets.git
+    rev: master
+    hooks:
+      - id: git-secrets
+  - repo: git://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.45.0
+    hooks:
+      - id: terraform_fmt
+      - id: terraform_validate
+      - id: terraform_tflint
+      - id: checkov
+        args: [--framework, 'terraform']
