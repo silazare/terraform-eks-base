@@ -59,5 +59,5 @@ curl <ALB Ingress FQDN>/banana
 
 5) Destroy manifests
 ```shell
-kubectl destroy -f .
+kubectl delete -f .
 ```
